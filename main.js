@@ -7,25 +7,33 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
-// Add active class to nav items on scroll
-window.addEventListener('scroll', () => {
+// Active navigation state on scroll
+const handleScroll = () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+    
     let current = '';
-    document.querySelectorAll('section').forEach(section => {
+    
+    sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 60) {
+        const sectionHeight = section.clientHeight;
+        
+        if (window.pageYOffset >= sectionTop - 60) {
             current = section.getAttribute('id');
         }
     });
-
-    document.querySelectorAll('nav a').forEach(link => {
+    
+    navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
+        if (link.getAttribute('href').slice(1) === current) {
             link.classList.add('active');
         }
     });
-});
+};
 
-// Project Card Parallax Effect
+window.addEventListener('scroll', handleScroll);
+
+// Project Card Hover Effects
 document.querySelectorAll('.project-card').forEach(card => {
     const cardInner = card.querySelector('.project-card-inner');
     const cardShine = card.querySelector('.project-card-shine');
@@ -35,39 +43,71 @@ document.querySelectorAll('.project-card').forEach(card => {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        // Calculate center of the card
+        // Calculate rotation
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-
-        // More pronounced rotation effect
-        const rotateX = -(y - centerY) / 10;
+        const rotateX = (y - centerY) / 10;
         const rotateY = (x - centerX) / 10;
 
-        // Apply transformation to the entire card
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+        // Apply transforms
+        card.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
         
-        // Inner content and shine effect
-        cardInner.style.transform = `translate(${(x - centerX) / 20}px, ${(y - centerY) / 20}px)`;
-        cardShine.style.transform = `translate(${x}px, ${y}px)`;
+        // Update shine effect
+        if (cardShine) {
+            cardShine.style.opacity = '1';
+            cardShine.style.transform = `translate(${x}px, ${y}px)`;
+        }
     });
 
     card.addEventListener('mouseleave', () => {
-        // Reset card and inner content
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-        cardInner.style.transform = 'translate(0, 0)';
-        cardShine.style.transform = 'translate(-50%, -50%)';
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        if (cardShine) {
+            cardShine.style.opacity = '0';
+        }
     });
 });
 
-
-document.addEventListener('mousemove', (e) => {
-    let mouseGlow = document.querySelector('.mouse-glow');
-    mouseGlow.style.transform = `translate(${e.clientX - 50}px, ${e.clientY - 50}px)`;
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    let mouseGlow = document.createElement('div');
+// Mouse glow effect
+const createMouseGlow = () => {
+    const mouseGlow = document.createElement('div');
     mouseGlow.classList.add('mouse-glow');
     document.body.appendChild(mouseGlow);
+
+    document.addEventListener('mousemove', (e) => {
+        mouseGlow.style.transform = `translate(${e.clientX - 50}px, ${e.clientY - 50}px)`;
+    });
+};
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    createMouseGlow();
+    handleScroll(); // Initial check for active nav item
 });
 
+// Form submission handling
+const form = document.querySelector('form');
+if (form) {
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                alert('Message sent successfully!');
+                form.reset();
+            } else {
+                throw new Error('Failed to send message');
+            }
+        } catch (error) {
+            alert('There was an error sending your message. Please try again.');
+            console.error('Form submission error:', error);
+        }
+    });
+}
