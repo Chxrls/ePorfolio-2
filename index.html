@@ -1,134 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charls Melindo - Portfolio</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+<body class="bg-gray-50">
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center py-4">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Home</a></li>
+                    <li><a href="#projects" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Projects</a></li>
+                    <li><a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition-colors duration-300">Contact</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <section id="home">
-        <div class="container">
-            <div class="profile">
-                <img src="https://avatars.githubusercontent.com/u/114855855?v=4" alt="Profile Picture" class="profile-img">
-                <div class="skills-card">
-                        <div class="biography">
-                            <h1 class="name">Charls Melindo</h1>
-                            <p class="description">I'm Charls, a third year barely surviving student with a passion on Artificial Intelligence and Computing Systems</p>
-                        </div>
-                            <div class="bio">
-                                    <h2 class="skills_text">What I'm Familiar With</h2>
-                                        <div class="skills-container">
-                                            <div class="skill">
-                                                <img src="https://freesvg.org/img/js_logo.png" alt="JavaScript">
-                                                <span>JavaScript</span>
-                                            </div>
-                                            <div class="skill">
-                                                <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_html_icon_130541.png" alt="HTML">
-                                                <span>HTML</span>
-                                            </div>
-                                            <div class="skill">
-                                                <img src="https://logospng.org/download/css-3/logo-css-3-2048.png" alt="CSS">
-                                                <span>CSS</span>
-                                            </div>
-                                            <div class="skill">
-                                                <img src="https://www.nicepng.com/png/full/111-1116276_computer-science-i-syllabus-and-grading-policy-c.png" alt="C++">
-                                                <span>C++</span>
-                                            </div>
-                                            <div class="skill">
-                                                <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/java_original_wordmark_logo_icon_146459.png" alt="Java">
-                                                <span>Java</span>
-                                            </div>
-                                            <div class="skill">
-                                                <img src="https://cdn.icon-icons.com/icons2/112/PNG/512/python_18894.png" alt="Python">
-                                                <span>Python</span>
-                                            </div>
-                                            <div class="skill">
-                                                <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/postgresql_original_logo_icon_146391.png" alt="PostgreSQL">
-                                                <span>PostgreSQL</span>
-                                            </div>
-                                            <div class="skill">
-                                                <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/tensorflow_logo_icon_168671.png" alt="TensorFlow">
-                                                <span>TensorFlow</span>
-                                            </div>
-                                            <div class="skill">
-                                                <img src="https://th.bing.com/th/id/R.02e221d6156ec04ce51b07e0baba76fc?rik=hGdNGXX0ytCLYQ&riu=http%3a%2f%2fman.hubwiz.com%2fdocset%2fKeras.docset%2fContents%2fResources%2fDocuments%2fimg%2fkeras-logo-small-wb.png&ehk=87bsyycRuqmumGB3d7UdUoAB1LYbX%2fnegG5VRo8kS3g%3d&risl=&pid=ImgRaw&r=0" alt="Keras">
-                                                <span>Keras</span>
-                                            </div>
-                                            <div class="skill">
-                                                <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/django_original_logo_icon_146559.png" alt="Django">
-                                                <span>Django</span>
-                                            </div>
-                                            <div class="skill">
-                                                <img src="https://seeklogo.com/images/N/numpy-logo-479C24EC79-seeklogo.com.png" alt="NumPy">
-                                                <span>NumPy</span>
-                                        </div>
-                                    </div>
+    <section id="home" class="min-h-screen pt-24 pb-16 bg-gradient-to-br from-white to-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-64 h-64 relative">
+                    <img src="https://avatars.githubusercontent.com/u/114855855?v=4" 
+                         alt="Profile Picture" 
+                         class="rounded-full w-full h-full object-cover shadow-lg">
+                </div>
+                
+                <div class="flex-1 bg-white rounded-xl shadow-lg p-8 transform hover:scale-[1.02] transition-transform duration-300">
+                    <div class="mb-8">
+                        <h1 class="text-4xl font-bold text-gray-800 mb-4">Charls Melindo</h1>
+                        <p class="text-lg text-gray-600">I'm Charls, a third year barely surviving student with a passion for Artificial Intelligence and Computing Systems</p>
+                    </div>
+                    
+                    <div>
+                        <h2 class="text-2xl font-semibold text-gray-800 mb-6">What I'm Familiar With</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                            <div class="skill-card">
+                                <img src="https://freesvg.org/img/js_logo.png" alt="JavaScript" class="w-12 h-12 mb-2">
+                                <span class="text-sm font-medium text-gray-700">JavaScript</span>
                             </div>
+                            <div class="skill-card">
+                                <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_html_icon_130541.png" alt="HTML" class="w-12 h-12 mb-2">
+                                <span class="text-sm font-medium text-gray-700">HTML</span>
+                            </div>
+                            <div class="skill-card">
+                                <img src="https://logospng.org/download/css-3/logo-css-3-2048.png" alt="CSS" class="w-12 h-12 mb-2">
+                                <span class="text-sm font-medium text-gray-700">CSS</span>
+                            </div>
+                            <div class="skill-card">
+                                <img src="https://www.nicepng.com/png/full/111-1116276_computer-science-i-syllabus-and-grading-policy-c.png" alt="C++" class="w-12 h-12 mb-2">
+                                <span class="text-sm font-medium text-gray-700">C++</span>
+                            </div>
+                            <div class="skill-card">
+                                <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/java_original_wordmark_logo_icon_146459.png" alt="Java" class="w-12 h-12 mb-2">
+                                <span class="text-sm font-medium text-gray-700">Java</span>
+                            </div>
+                            <div class="skill-card">
+                                <img src="https://cdn.icon-icons.com/icons2/112/PNG/512/python_18894.png" alt="Python" class="w-12 h-12 mb-2">
+                                <span class="text-sm font-medium text-gray-700">Python</span>
+                            </div>
+                            <div class="skill-card">
+                                <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/postgresql_original_logo_icon_146391.png" alt="PostgreSQL" class="w-12 h-12 mb-2">
+                                <span class="text-sm font-medium text-gray-700">PostgreSQL</span>
+                            </div>
+                            <div class="skill-card">
+                                <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/tensorflow_logo_icon_168671.png" alt="TensorFlow" class="w-12 h-12 mb-2">
+                                <span class="text-sm font-medium text-gray-700">TensorFlow</span>
+                            </div>
+                            <div class="skill-card">
+                                <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/django_original_logo_icon_146559.png" alt="Django" class="w-12 h-12 mb-2">
+                                <span class="text-sm font-medium text-gray-700">Django</span>
+                            </div>
+                            <div class="skill-card">
+                                <img src="https://seeklogo.com/images/N/numpy-logo-479C24EC79-seeklogo.com.png" alt="NumPy" class="w-12 h-12 mb-2">
+                                <span class="text-sm font-medium text-gray-700">NumPy</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section id="projects" class="project-box" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">My Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card">
+                    <div class="project-card-shine"></div>
+                    <div class="project-card-inner">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Email Weather</h3>
+                        <p class="text-gray-600 mb-4">An email service app that replies to your weather email queries with accurate real-time weather information.</p>
+                        <a href="https://github.com/Chxrls/Email-Weather" target="_blank" class="text-blue-600 hover:text-blue-700 inline-flex items-center">
+                            View on GitHub
+                            <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-    <section id="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-card-shine"></div>
                     <div class="project-card-inner">
-                        <h3>Todo App</h3>
-                        <p>A comprehensive todo application built with modern web technologies.</p>
-                        <a href="https://github.com/Chxrls/adet-todo-app" target="_blank">View on GitHub</a>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Maps Project</h3>
+                        <p class="text-gray-600 mb-4">An interactive mapping application that uses Google Maps API.</p>
+                        <a href="https://github.com/Chxrls/Maps" target="_blank" class="text-blue-600 hover:text-blue-700 inline-flex items-center">
+                            View on GitHub
+                            <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
+
                 <div class="project-card">
                     <div class="project-card-shine"></div>
                     <div class="project-card-inner">
-                        <h3>Maps Project</h3>
-                        <p>An interactive mapping application showcasing location-based features.</p>
-                        <a href="https://github.com/Chxrls/Maps" target="_blank">View on GitHub</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-card-shine"></div>
-                    <div class="project-card-inner">
-                        <h3>Calculator</h3>
-                        <p>A feature-rich calculator application with a modern interface.</p>
-                        <a href="https://github.com/Chxrls/CALCULATOR" target="_blank">View on GitHub</a>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">ToDo App</h3>
+                        <p class="text-gray-600 mb-4">A comprehensive todo application that is built using python flask.</p>
+                        <a href="https://github.com/Chxrls/adet-todo-app" target="_blank" class="text-blue-600 hover:text-blue-700 inline-flex items-center">
+                            View on GitHub
+                            <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Connect With Me</h2>
-            <div class="social-links">
-                <a href="https://fb.me/melindocharls" target="_blank">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://instagram.com/0xCharls/" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://github.com/Chxrls" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center">Get in Touch</h2>
+            
+            <div class="max-w-2xl mx-auto">
+                <form action="https://formspree.io/f/mqaazppj" 
+                method="POST" 
+                class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                        <input type="text" name="name" id="name" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" name="email" id="email" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                        <textarea name="message" id="message" rows="4" required
+                                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300">
+                        Send Message
+                    </button>
+                </form>
+
+                <div class="mt-12 flex justify-center space-x-6">
+                    <a href="https://fb.me/melindocharls" target="_blank" 
+                       class="social-link text-gray-600 hover:text-blue-600">
+                        <i class="fab fa-facebook fa-2x"></i>
+                    </a>
+                    <a href="https://instagram.com/0xCharls/" target="_blank"
+                       class="social-link text-gray-600 hover:text-pink-600">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/Chxrls" target="_blank"
+                       class="social-link text-gray-600 hover:text-gray-900">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
